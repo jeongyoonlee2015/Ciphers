@@ -1,5 +1,6 @@
 # RC4
 * RC4 (Rivest Cipher 4 also known as ARC4 or ARCFOUR meaning Alleged RC4, see below) is a stream cipher. <br> It has been used for WPA and WPA2.
+* The RC4 was created to be symmetric, the encryption phase is identical to decryption.
 
 # Structure of RC4 Cipher
 1. Key Scheduling (1byte <= key length <= 256byte)
