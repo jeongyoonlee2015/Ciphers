@@ -21,8 +21,12 @@ for i in range(len(message)):
 
     S[i], S[j] = S[j], S[i]
     calc = (S[(S[i] + S[j]) % 256])
-    stream = S[calc]
-    stream_code.append(stream)
+    stream = S[calc] #여기부터 재확인필
+
+# XOR
+    message[counter] ^= S[stream]요
+
+
 
 # Print Result (난관봉착)
 
@@ -33,3 +37,5 @@ for i in range(len(message)):
     keystream = S(key)
 
     print(keystream, binascii.format(keystream))# print(stream, '{:08b}'.format(stream))
+
+# ord(): char2asc chr():asc2char(10,16진수가능)
