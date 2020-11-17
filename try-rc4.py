@@ -21,10 +21,10 @@ for i in range(len(message)):
 
     S[i], S[j] = S[j], S[i]
     calc = (S[(S[i] + S[j]) % 256])
-    stream = S[calc] #여기부터 재확인필
+    stream = S[calc] #여기부터 재확인필요
 
 # XOR
-    message[counter] ^= S[stream]요
+    message[counter] ^= S[stream]
 
 
 
