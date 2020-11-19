@@ -1,22 +1,22 @@
-#m = "Twinkle twinkle little star How I wonder what you are Up above the world so high Like a diamond in the sky Twinkle twinkle little star How I wonder what you are"
-
-def Encoding(m):#문자열 인코딩
-    m = "Twinkle twinkle little star How I wonder what you are Up above the world so high Like a diamond in the sky Twinkle twinkle little star How I wonder what you are"
-    M = []
-    test = []
-    for i in range(len(m)):
-       M.append(ord(m[i]))
-    return M
+# #m = "Twinkle twinkle little star How I wonder what you are Up above the world so high Like a diamond in the sky Twinkle twinkle little star How I wonder what you are"
+#
+# def Encoding(m):#문자열 인코딩
+#     m = "Twinkle twinkle little star How I wonder what you are Up above the world so high Like a diamond in the sky Twinkle twinkle little star How I wonder what you are"
+#     M = []
+#     test = []
+#     for i in range(len(m)):
+#        M.append(ord(m[i]))
+#     return M
 
 #압축함수구현: Davies-Meyer
-x = 0xa5c8f1ee
+x = 0xa5c8f1ee #x = hex(2781409774)
 def CompressionFunction(x, M):
     y = BlockCipherEncrypt(x, M) ^ M
     return y
 
 # From my Professor
-P = 0x12345678
-K = 0xC58FA10B
+P = 0x12345678 #P = hex(305419896)
+K = 0xC58FA10B #K = hex(3314524427)
 def BlockCipherEncrypt(K, P):
     S = [14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7]
     T = K ^ P
