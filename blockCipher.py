@@ -1,5 +1,8 @@
 # From my Professor
+
 def BlockCipherEncrypt(K, P):
+    P = 0x12345678
+    K = 0xC58FA10B
     S = [14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7]
     T = K ^ P
     X = [0 for j in range(8)]
