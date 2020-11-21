@@ -1,4 +1,6 @@
 #2nd RSA Code
+from DigitalSignature.hash import *
+from DigitalSignature.pre import *
 
 def gcd(a, b):
     while b != 0:
@@ -33,17 +35,10 @@ phi = (p - 1) * (q - 1)
 e = publicKey(phi)
 d = privateKey(e, phi)
 
-mode = input("encrypt or decrypt?: ")
-if mode == 'encrypt':
-    # m1 = 150000
-    m1 = int(input('암호화 할 텍스트를 입력하세요.:'))
-    ciphertext = (m1 ** e) % n
-    print('\nEncrypted text:', ciphertext)
-elif mode == 'decrypt':
-    # c2 = 272301
-    c2 = int(input('복호화 할 텍스트를 입력하세요.:'))
-    plaintext = (c2 ** d) % n
-    print('\nDecrypted text:', plaintext)
+# m1 = 150000
+m1 = print(hex(HashFunction(Encoding.M)))
+ciphertext = (m1 ** e) % n
+print('\nEncrypted text:', ciphertext)
 
 print("\nn = (p * q)=", str(p), "*", str(q), "=", str(n))
 print("(p - 1) * (q - 1)=", str(phi), "\n")
