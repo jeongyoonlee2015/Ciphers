@@ -1,5 +1,7 @@
 import binascii
 
+import counter
+
 message = 'plainplain'
 key = 'plain form password'
 

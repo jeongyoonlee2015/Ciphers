@@ -1,4 +1,3 @@
-#2nd RSA Code
 from DigitalSignature.hash import *
 from DigitalSignature.pre import *
 
@@ -35,9 +34,13 @@ phi = (p - 1) * (q - 1)
 e = publicKey(phi)
 d = privateKey(e, phi)
 
-# m1 = 150000
-m1 = print(hex(HashFunction(Encoding.M)))
-ciphertext = (m1 ** e) % n
+
+# m = print(HashFunction(Encoding(m)))
+# ciphertext = (m ** e) % n
+# # out X: 0x3d651bff
+# # 1030036479
+m = HashFunction(Encoding(m))
+ciphertext = (m ** e) % n
 print('\nEncrypted text:', ciphertext)
 
 print("\nn = (p * q)=", str(p), "*", str(q), "=", str(n))
