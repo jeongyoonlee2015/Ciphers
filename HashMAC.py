@@ -1,17 +1,16 @@
 m = "Twinkle twinkle little star How I wonder what you are Up above the world so high Like a diamond in the sky Twinkle twinkle little star How I wonder what you are"
 def Encoding(m):#문자열 인코딩
-
     M = []
-    for i in range(len(m)):
+    for i in range(len(m)):#문자열 길이만큼 돌리기
         M.append(ord(m[i]))
-    return M
+    return M#최종적으로 만들어진 배열 반환
 
 #X = 0xa5c8f1ee
 
 
 def BlockCipherEncrypt(K, P):# 키, 평문블록
-    P = 0x12345678  # P = hex(305419896)
-    K = 0xC58FA10B  # K = hex(3314524427)
+    #P = 0x12345678  # P = hex(305419896)
+    #K = 0xC58FA10B  # K = hex(3314524427)
     S = [14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7]
     T = K ^ P
     X = [0 for j in range(8)]
@@ -31,21 +30,20 @@ def BlockCipherEncrypt(K, P):# 키, 평문블록
         Z[6] = Y[2] ^ Y[3] ^ Y[4] ^ Y[5] ^ Y[7]
         Z[7] = Y[0] ^ Y[3] ^ Y[4] ^ Y[5] ^ Y[6]
 
-        for j in range(8): T = (T << 4)| Z[7 - j]
+        for j in range(8): T = (T << 4)|Z[7 - j]
         T = (T & 0xffffffff) ^ K
     return T
 
 #압축함수구현: Davies-Meyer
 # x = 0xa5c8f1ee  # x = hex(2781409774)
-
-def CompressionFunction(X, M):#둘다 32bit
-    M1 = BlockCipherEncrypt(X, M) ^ M
-    return M1
+def CompressionFunction(x, m):#둘다 32bit m: 메시지 블록
+    y = BlockCipherEncrypt(m, x) ^ x #키, 평문 블록
+    return y
 
 #해시함수
 def HashFunction(M):
     #MD-Strengthening Padding
-    Mblock = []#메시지 블록 배열
+    Mblock = [] #메시지 블록 배열
     Mlen = len(M) #메시지 길이(바이트 수) = 16비트 값
     Mblen = 0#메시지 블록
 
@@ -78,17 +76,12 @@ def HashFunction(M):
         temp = (M[Mlen - 3] << 24) | (M[Mlen - 2] << 16) | (M[Mlen - 1] << 8) | (0x80)
         Mblock.append(temp)
         Mblock.append(Mlen)
-
-    # X = 0xa5c8f1ee
-
-    X = 0xa5c8f1ee
-    Y = CompressionFunction(X, Mblock[i])
-    j = i + 1
-    for j in range(Mblen):
-        Y = CompressionFunction(Y, Mblock[j])
-        return Y
-    print("out Y:", hex(Y))
-    return Y
+    #X = 0xa5c8f1ee #초기값
+    X = CompressionFunction(0xa5c8f1ee, Mblock[i])
+    for i in range(Mblen):
+        X = CompressionFunction(X, Mblock[i]) #입력받아 새로운 X생성
+    print("out X:", hex(X))
+    return X
 
 
 #해시함수 실행
