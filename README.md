@@ -1,5 +1,5 @@
 # Ciphers
-Cipher Algorithm in [InformationTheory]()
+Cipher Algorithm
 
 * [Vigenere]()
 * [RC4](https://github.com/jeongyoonlee2015/Ciphers/blob/master/try-rc4.py)
