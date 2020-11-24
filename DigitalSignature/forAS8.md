@@ -56,3 +56,14 @@
 * 전자서명 검증
     * 메시지 -> 해시함수 -> ```32비트``` -> mod 319373 -> ```0x2fb08``` 
     * 전자서명값: ```0x26a2d``` -> RSA복호화(e,n) = (11, 319373) -> ```0x2fb08```
+    
+    ```.py
+    PublicKey(e, n) = (11, 319373)
+    Private Key d = 28931
+    Hash Value of m : 0x3e649af1
+    Signature: 0x26a2d
+    Verification:   
+        s -> h%n: 0x2fb08
+        m -> h%n: 0x2fb08
+        => (m, s) is valid!
+    ```
