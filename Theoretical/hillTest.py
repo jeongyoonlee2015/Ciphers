@@ -4,16 +4,17 @@ import string
 import random
 dim = 2
 alphabet = string.ascii_uppercase
-key = np.matrix([[1, 2], [2, 5]])
-
+#key = np.matrix([[1, 2], [2, 5]])
+#HOTBYJWOGQIH
 def main():
     mode = input("Select Encrypt or Decrypt:")
-    if mode == 'Encrypt' or 'encrypt':
+    if mode == 'Encrypt':
         encrypt()
-    elif mode == 'Decrypt' or 'decrypt':
+    elif mode == 'Decrypt':
         decrypt()
 
 def encrypt():
+    key = np.matrix([[1, 2], [2, 5]])
     plaintext = input("Input your plaintext for encryption:")
     encryption = ""
     for index, i in enumerate(plaintext):
@@ -35,7 +36,8 @@ def encrypt():
 def decrypt():
     ciphertext = input("Input your ciphertext for decryption:")
     decryption = ""
-    key = Matrix(np.matrix([[1, 2], [2, 5]]))
+    key = np.matrix([[1, 2], [2, 5]])
+    key = Matrix(key)
     key = key.inv_mod(26)
     key = key.tolist()
 
@@ -43,14 +45,14 @@ def decrypt():
         values = []
 
         if index % dim == 0:
-            for j in range(dim):
+            for j in range(0, dim):
                 values.append([alphabet.index(ciphertext[index + j])])
 
             vector = np.matrix(values)
             vector = key * vector
             vector %= 26
 
-            for j in range(dim):
+            for j in range(0, dim):
                 decryption += alphabet[vector.item(j)]
     print(decryption)
 
