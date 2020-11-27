@@ -14,7 +14,7 @@ def main():
         deHill()
 
 def enHill():
-    message = 'HAPPYNEWYEAR'
+    message = input("Input your message for encryption:")
     encryption = ""
 
     for index, i in enumerate(message):
@@ -34,7 +34,7 @@ def enHill():
     print(encryption)
 
 def deHill():
-    message = 'HOTBYJWOGQIH'
+    message = input("Input your message for decryption:")
     decryption = ""
     key = np.matrix([[1, 2], [2, 5]])
     key = Matrix(key)
