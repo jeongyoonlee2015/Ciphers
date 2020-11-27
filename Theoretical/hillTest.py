@@ -14,15 +14,15 @@ def main():
         deHill()
 
 def enHill():
-    message = input("Input your message for encryption:")
+    plaintext = input("Input your plaintext for encryption:")
     encryption = ""
 
-    for index, i in enumerate(message):
+    for index, i in enumerate(plaintext):
         values = []
         if index % dim == 0:
             for j in range(0, dim):
-                if (index + j < len(message)):
-                    values.append([alphabet.index(message[index + j])])
+                if (index + j < len(plaintext)):
+                    values.append([alphabet.index(plaintext[index + j])])
                 else:
                     values.append([random.randint(0, 25)])
 
@@ -34,19 +34,19 @@ def enHill():
     print(encryption)
 
 def deHill():
-    message = input("Input your message for decryption:")
+    ciphertext = input("Input your ciphertext for decryption:")
     decryption = ""
     key = np.matrix([[1, 2], [2, 5]])
     key = Matrix(key)
     key = key.inv_mod(26)
     key = key.tolist()
 
-    for index, i in enumerate(message):
+    for index, i in enumerate(ciphertext):
         values = []
 
         if index % dim == 0:
             for j in range(0, dim):
-                values.append([alphabet.index(message[index + j])])
+                values.append([alphabet.index(ciphertext[index + j])])
 
             vector = np.matrix(values)
             vector = key * vector
