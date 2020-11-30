@@ -1,18 +1,18 @@
 # Cracking Codes with Python
 [Reference](https://nostarch.com/crackingcodes)
-1.
-2.
-3.
-4. [Reverse Cipher]()
-5. [The Caesar Cipher]()
-6. [Hackin the caesar cipher with Brute-Force]()
+1. [Making paper Cryptography tools]()<br>
+2. [Programmin in the interactive shell]()<br> 
+3. [Strings and Writing programs]()<br>
+4. [Reverse Cipher]()<br>
+5. [The Caesar Cipher]()<br>
+6. [Hackin the caesar cipher with Brute-Force]()<br>
     * Brute-Force
         * 가능한 모든 복호 키로 암호 해독을 시도하는 것
         * 카이사르 암호를 해킹할 수 있음<br>```메시지의 비밀을 지키는 것이 암호의 핵심이며, 카이사르 암호는 이런 정보를 찾기 매우 쉽다.```
         * Kerckhoff's rule: <br>```암호의 동작 원리를 누구나 알고 있고 대상자가 아닌 누군가의 암호문을 갖고 있어도 그 암호가 여전히 안전해야 함```
         * Claude Shannon ```적은 그 시스템을 알고 있다.```
-    
-7. [Encrypting with the Transposition Cipher]()
+    <br>
+7. [Encrypting with the Transposition Cipher]()<br>
     * Caesar Cipher의 한계: 컴퓨터로 66개의 가능한 모든 키를 무차별 대입법으로 공격하는 것은 어려운 일이 아니기 때문
     * Transposition Cipher의 특성
         * 가능한 키의 수가 메시지의 길이에 좌우되므로 무차별 대입법으로 깨기 더 어려움
@@ -32,7 +32,8 @@
         * 문자가 상자 끝에 이르면 상자의 줄을 한 줄 더 그린다.
         * 마지막 문자까지 오면 마지막 행에 있는 사용하지 않은 상자는 칠해둔다.
         * 왼쪽 상단부터 시작해 각 열을 내려가면서 문자를 쓴다. <br> 열의 가장 아래에 이르면 오른쪽의 다음 열로 이동한다. <br> 지운 상자는 건너뛴다. 이것이 ```암호문```이 된다.
-8. [Decrypting with the Transposition Cipher]()
+<br>
+8. [Decrypting with the Transposition Cipher]()<br>
     * Process of Decryption
         * 메시지 길이를 키로 나누고 반올림해 필요한 열 수를 계산
         * 상자를 열과 행으로 그린다. 앞에서 계산한 마큼 열을, 키 값만큼 행을 그린다.
@@ -40,3 +41,6 @@
         * 가장 오른쪽 아래 칸에 3단계에서 계산한 값만큼 칠한다.
         * 가장 윗줄에서부터 왼쪽에서 오른족으로 한칸씩 암호문의 문자를 넣는다. 검게 칠한 상자는 건너뛴다.
         * 가장 왼쪽 열에서부터 위에서 아래로 읽고 이 과정을 모든 열에서 수행해 평문을 얻는다.
+        <br>
+        
+    9. []()<br>
