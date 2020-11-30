@@ -33,7 +33,8 @@
         * 마지막 문자까지 오면 마지막 행에 있는 사용하지 않은 상자는 칠해둔다.
         * 왼쪽 상단부터 시작해 각 열을 내려가면서 문자를 쓴다. <br> 열의 가장 아래에 이르면 오른쪽의 다음 열로 이동한다. <br> 지운 상자는 건너뛴다. 이것이 ```암호문```이 된다.
 <br>
-8. [Decrypting with the Transposition Cipher]()<br>
+8. [Decrypting with the Transposition Cipher]()
+    <br>
     * Process of Decryption
         * 메시지 길이를 키로 나누고 반올림해 필요한 열 수를 계산
         * 상자를 열과 행으로 그린다. 앞에서 계산한 마큼 열을, 키 값만큼 행을 그린다.
