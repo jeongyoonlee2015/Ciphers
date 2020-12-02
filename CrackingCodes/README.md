@@ -54,22 +54,45 @@
     * 수백만 글자에 달하는 파일 전체를 암호화/복호화하기
     <br>
 
-11. []()<br>
+11. [Detecting english programmatically]()<br>
 
     <br>
 
-12. []()<br>
+12. [Hacking the Transposition cipher]()<br>
 
     <br>
 
-13. []()<br>
+13. [A Modular Arithmetic module for the Affine Cipher]()<br>
+    * 곱셈암호
+        * 카이사르 암호와 비슷하지만 더하기가 아닌 곱하기로 암호화를 수행
+        * 아핀 암호는 곱셈암호와 카이사르 암호를 결합해 더 강력하고 안전한 암호화를 구현
+        * 나머지 연산 & 최대공약수 이용 [cryptomath.py]()
     <br>
 
-14. []()<br>
+14. [Programming the Affine Cipher]()<br>
+    * 아핀 암호는 암호화 과정에서 서로 다른 암호 두 개를 사용하기 때문에 키도 두 개가 필요한 암호
+        * 곱셈 암호용
+        * 카이사르 암호용
+        * 정수 한 개를 키 두 개로 분할해보
+        
+    * 아핀 암호는 몇 개의 키를 보유할 수 있는가?
+        * 아핀 암호의 키 B는 심볼 집합의 크기만큼으로 제한됨
+        * 키 A는 심볼 집합 크기와 서로소 관계이기만 하면 얼마든지 커도 될 것 같다고 생각할 수 있다. 하지만 카이사르 암호는 심볼 집합을 순회하므로 큰 암호 키와 작은 암호 키의 결과가 같은 결과가 같은 경우가 존재한다는 점을 지닌다.
+    ```.py
+    # affineKeyTest.py
+    # 아핀 암호의 키 공간이 len(SYMBOLS) ^ 2미만인 것을 검증
+    from CrackingCodes import affineCipher, cryptoMath
 
+    message ='Make thins as simple as possible, but not simpler.'
+
+    for keyA in range(2, 80):
+        key = keyA * len(affineCipher.SYMBOLS) + 1
+        if cryptoMath.gcd(keyA, len(affineCipher.SYMBOLS)) == 1:
+            print(keyA, affineCipher.encryptMessage(key,message))
+    ```
     <br>
 
-15. []()<br>
+15. [Hacking the Affine Cipher]()<br>
     <br>
 
 16. []()<br>
