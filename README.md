@@ -4,10 +4,13 @@
 * [To be Continued]()
 * []()
 
-### Cryptography and Linear Algebra
+
+## Cryptography and Linear Algebra
 * [Hill Cipher](https://github.com/jeongyoonlee2015/Ciphers/blob/master/Theoretical/hillCipher.py)
 
-### Cryptography Information Theory
+
+
+## Cryptography Information Theory
 1. 강의 01 강의소개 및 암호의 개념 소개
 2. 강의 02 단일 문자 치환 암호
 3. 강의 03 다중 문자 치환 암호와 에니그마
